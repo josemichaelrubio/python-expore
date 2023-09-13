@@ -18,6 +18,15 @@ class Student:
     def split_students(cls, student_str):
         name, age, school = student_str.split('.')
         return cls(name,age)
+class ActiveStudent(Student):
+    def __init__(self, name, age, activity):
+        super().__init__(name, age)
+        self.activity = activity
+    def name_school(self):
+        return f'Name: {self.name}, school: {self.school}, activity: {self.activity}'
+    def do(self):
+        return f'Doing {self.activity}'
+
 
 print(Student.number_of_students)
 student1 = Student("John", 20)
@@ -35,3 +44,8 @@ print(student3.name_age())
 Student.set_school("College of Arts")
 print(student3.name_school())
 print(Student.number_of_students)
+student4 = ActiveStudent("Jacob", 20, "Studying")
+
+print(student4.name_school())
+print(Student.number_of_students)
+print(student4.do())
